@@ -9,40 +9,29 @@
 
     <EditText
         android:id="@+id/edittext_input"
-        android:inputType="numberDecimal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Temperatura" />
+        android:gravity="center"
+        android:hint="Temperatura"
+        android:inputType="numberDecimal" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:orientation="horizontal">
+        android:layout_marginTop="10dip"
+        android:text="@string/escala" />
+    <Spinner
+        android:id="@+id/spin_escala"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:prompt="@string/escala" />
 
-        <Button
-            android:id="@+id/button_converter_celsius"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Converter para celsius" />
+    <Button
+        android:id="@+id/button_converter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Converter" />
 
-        <Button
-            android:id="@+id/button_converter_fahrenheit"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Converter para fahrenheit" />
-
-        <Button
-            android:id="@+id/button_converter_kelvin"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Converter para kelvin" />
-
-    </LinearLayout>
 
     <TextView
         android:id="@+id/textview_output"
