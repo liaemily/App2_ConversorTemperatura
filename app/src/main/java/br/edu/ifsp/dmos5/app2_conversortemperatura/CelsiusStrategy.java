@@ -1,12 +1,10 @@
 package br.edu.ifsp.dmos5.app2_conversortemperatura;
 
-public class FahrenheitStrategy implements ConversorTemperatura{
-
-    //converter para Celsius
+public class CelsiusStrategy implements ConversorTemperatura {
     @Override
     public double getConversion(double temperature) {
 
-        double conversion = (temperature - 32) / 1.8;
+        double conversion = 1.8 * temperature + 32;
 
         return conversion;
     }

@@ -11,9 +11,11 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private FahrenheitStrategy FahrenheitConvertion = new FahrenheitStrategy();
+    private FahrenheitStrategy FahrenheitConversion = new FahrenheitStrategy();
+    private CelsiusStrategy CelsiusConversion = new CelsiusStrategy();
     private EditText inputEditText;
     private Button converterCelsiusButton;
+    private Button converterFahrenheitButton;
     private TextView outputTextView;
 
 
@@ -26,24 +28,39 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         inputEditText = findViewById(R.id.edittext_input);
         converterCelsiusButton = findViewById(R.id.button_converter_celsius);
+        converterFahrenheitButton = findViewById(R.id.button_converter_fahrenheit);
         outputTextView = findViewById(R.id.textview_output);
         converterCelsiusButton.setOnClickListener(this);
+        converterFahrenheitButton.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         if (v == converterCelsiusButton){
-            getCelsiusConvertion();
+            getCelsiusConversion();
+        }
+
+        if (v == converterFahrenheitButton){
+            getFahrenheitConversion();
         }
     }
 
-    private void getCelsiusConvertion(){
+    private void getCelsiusConversion(){
         double value = getValue();
         double celsius;
 
-        celsius = FahrenheitConvertion.getConversion(value);
+        celsius = FahrenheitConversion.getConversion(value);
 
         outputTextView.setText(String.valueOf(celsius + "ºC"));
+    }
+
+    private void getFahrenheitConversion(){
+        double value = getValue();
+        double fahrenheit;
+
+        fahrenheit = CelsiusConversion.getConversion(value);
+
+        outputTextView.setText(String.valueOf(fahrenheit + "ºF"));
     }
 
     private double getValue(){
