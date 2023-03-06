@@ -13,9 +13,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private FahrenheitStrategy FahrenheitConversion = new FahrenheitStrategy();
     private CelsiusStrategy CelsiusConversion = new CelsiusStrategy();
+
+    private KelvinStrategy KelvinConversion = new KelvinStrategy();
     private EditText inputEditText;
     private Button converterCelsiusButton;
     private Button converterFahrenheitButton;
+    private Button converterKelvinButton;
     private TextView outputTextView;
 
 
@@ -29,9 +32,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         inputEditText = findViewById(R.id.edittext_input);
         converterCelsiusButton = findViewById(R.id.button_converter_celsius);
         converterFahrenheitButton = findViewById(R.id.button_converter_fahrenheit);
+        converterKelvinButton = findViewById(R.id.button_converter_kelvin);
         outputTextView = findViewById(R.id.textview_output);
         converterCelsiusButton.setOnClickListener(this);
         converterFahrenheitButton.setOnClickListener(this);
+        converterKelvinButton.setOnClickListener(this);
     }
 
     @Override
@@ -40,8 +45,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             getCelsiusConversion();
         }
 
-        if (v == converterFahrenheitButton){
+        else if (v == converterFahrenheitButton){
             getFahrenheitConversion();
+        }
+
+        else if (v == converterKelvinButton){
+            getKelvinConversion();
         }
     }
 
@@ -61,6 +70,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         fahrenheit = CelsiusConversion.getConversion(value);
 
         outputTextView.setText(String.valueOf(fahrenheit + "ºF"));
+    }
+
+    private void getKelvinConversion(){
+        double value = getValue();
+        double kelvin;
+
+        kelvin = KelvinConversion.getConversion(value);
+
+        outputTextView.setText(String.valueOf(kelvin + "ºK"));
     }
 
     private double getValue(){

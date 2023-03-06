@@ -26,7 +26,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_gravity="left"
             android:text="Converter para celsius" />
 
         <Button
@@ -34,8 +33,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_gravity="right"
             android:text="Converter para fahrenheit" />
+
+        <Button
+            android:id="@+id/button_converter_kelvin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Converter para kelvin" />
 
     </LinearLayout>
 
